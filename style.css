@@ -1,0 +1,1040 @@
+/*======================================================
+  1. CSS Variables for Luxury Theme (Royal Navy & Bright Gold)
+========================================================*/
+
+:root {
+    /* Main Colors */
+    --background-color: #e7f5dc;
+    /* Light Cream/Off-White Background */
+    --surface-color: #ffffff;
+    /* Pure White Surface for Cards/Header */
+    --primary-color: #E6B31E;
+    /* Bright Gold (Highlight/Accent) */
+    --secondary-color: #0b4147;
+    /* Deep Royal Navy Blue (Primary Text/Strong Elements) */
+    --text-color: #000000;
+    --subtle-text: #666666;
+    --border-color: #cccccc;
+    --dark-primary-color: #000000;
+    /* Deepest Black for hover contrast */
+    /* Typography */
+    --font-heading: 'Transcity Font', serif;
+    /* Use a fancy serif font if available */
+    --font-body: 'Arial', sans-serif;
+}
+
+
+/*======================================================
+  7. ULTIMATE WROUGHT IRON GATE OPENING EFFECT (Final Unique Style)
+========================================================*/
+
+
+/* Container jo poori screen ko cover karega */
+
+.door-opening-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Parde ke peeche ka deep black/gold ambient light effect */
+    background-color: transparent;
+    box-shadow: 0 0 100px rgba(255, 215, 0, 0.4);
+    /* Ambient Gold Glow */
+}
+
+
+/* Door Text (SULTAN JI) - GRAND FLASH REVEAL */
+
+.door-text {
+    position: absolute;
+    z-index: 10000;
+    font-size: 8em;
+    font-family: var(--font-heading);
+    color: #fff200;
+    /* Initial state set by JS for the animation sequence */
+}
+
+
+/* --- Keyframes for Sparkling Text Reveal (Same as before, perfect for the drama) --- */
+
+@keyframes revealText {
+    0% {
+        opacity: 0;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        color: transparent;
+    }
+    100% {
+        opacity: 1;
+        /* Ultimate Gold Shadow */
+        color: var(--primary-color);
+        text-shadow: 0 0 15px #FFD700, 0 0 35px #FFD700, 0 0 70px rgba(255, 215, 0, 0.8);
+    }
+}
+
+
+/* Har ek door ka style (Heavy Wrought Iron Gate) */
+
+.door {
+    width: 50%;
+    height: 100%;
+    /* UNIQUE: Black Iron Look with Wrought Design */
+    /* Dark Metallic Background */
+    background: #111111;
+    /* Gold-tinted border to highlight the gate frame */
+    border: 8px solid var(--primary-color);
+    /* Strong Inner Shadow for heavy metal look */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 1.5), 0 0 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    /* Important for the internal iron pattern */
+}
+
+
+/* --- UNIQUE: Wrought Iron Pattern (The Key Effect) --- */
+
+.door::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    /* Pattern: Vertical bars and subtle horizontal lines */
+    background: repeating-linear-gradient(to right, #222 0, #222 3px, transparent 3px, transparent 40px), repeating-linear-gradient(to bottom, transparent 0, transparent 200px, #333 200px, #333 205px);
+    /* Subtle Gold metallic finish on the pattern */
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.2));
+}
+
+
+/* --- Animation Keyframes (Heavy, Slow Slide Open) --- */
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0) rotateY(0deg);
+    }
+    100% {
+        /* Slow-motion slide out, slightly tilting back for weight */
+        transform: translateX(-100%) perspective(300px) rotateY(-8deg);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0) rotateY(0deg);
+    }
+    100% {
+        /* Slow-motion slide out, slightly tilting back for weight */
+        transform: translateX(100%) perspective(300px) rotateY(8deg);
+    }
+}
+
+
+/* Final Fade Out (Container ko hide karna) */
+
+@keyframes openDoors {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    99% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeOutText {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*======================================================
+  2. Global and Reset Styles
+========================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    /* Navy Blue Heading */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+section {
+    padding: 60px 5%;
+}
+
+
+/* --- Action-Full Luxury Button --- */
+
+.luxury-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    /* Gold button background */
+    color: var(--secondary-color);
+    /* Navy text */
+    padding: 14px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+}
+
+.luxury-btn:hover {
+    background-color: var(--secondary-color);
+    /* Navy background on hover */
+    color: var(--primary-color);
+    /* Gold text on hover */
+    transform: translateY(-3px);
+    /* Subtle lift */
+    box-shadow: 0 6px 15px rgba(11, 65, 71, 0.6);
+    /* Navy Shadow */
+}
+
+
+/*======================================================
+  3. HEADER & NAVIGATION (Stylish Search Bar)
+========================================================*/
+
+.luxury-header {
+    background-color: var(--surface-color);
+    border-bottom: 3px solid var(--primary-color);
+    /* Gold Line */
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    /* Gold border on logo */
+}
+
+.luxury-header h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--secondary-color);
+    /* Navy Blue Heading */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    padding: 8px 15px;
+    margin: 0 5px;
+    transition: color 0.3s, border-bottom 0.3s;
+    font-weight: 600;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+
+/* --- ACTION-FULL SEARCH BAR --- */
+
+.search-form {
+    display: flex;
+    gap: 0;
+    /* Bold Gold Border */
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    /* Zyada Rounded Corners for a modern look */
+    overflow: hidden;
+    margin-left: 15px;
+    /* Smooth transition for hover/focus effects */
+    transition: box-shadow 0.3s, transform 0.3s;
+    background-color: var(--surface-color);
+}
+
+.search-form:hover {
+    transform: scale(1.02);
+    /* Slight lift on hover */
+    /* Soft Gold Shadow on hover */
+    box-shadow: 0 5px 15px rgba(230, 179, 30, 0.4);
+}
+
+.search-form:focus-within {
+    /* Prominent Gold glow on focus (when user types) */
+    box-shadow: 0 0 18px rgba(230, 179, 30, 0.8);
+}
+
+.search-form input[type="search"] {
+    padding: 10px 15px;
+    border: none;
+    font-size: 1em;
+    width: 250px;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.search-form button {
+    background-color: var(--primary-color);
+    /* Gold Button Color */
+    color: var(--secondary-color);
+    /* Navy text on Gold */
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-form button:hover {
+    background-color: var(--dark-primary-color);
+    /* Dark/Black hover for strong contrast */
+    color: var(--primary-color);
+    /* Gold text on dark hover */
+    transform: scale(1.05);
+    /* Button grows slightly on interaction */
+}
+
+
+/*======================================================
+  4. PRODUCT CARDS (Action-Full Styles)
+========================================================*/
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 5%;
+}
+
+
+/* --- Action-Full Product Item --- */
+
+.product-item {
+    background-color: var(--surface-color);
+    /* White Surface */
+    padding: 25px;
+    max-width: 330px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    /* Initial Royal Navy border */
+    border: 2px solid var(--secondary-color);
+    /* Stronger, faster transition for aggressive action (Hover/Lift effect) */
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Springy transition */
+    overflow: hidden;
+    position: relative;
+}
+
+.product-item:hover {
+    /* Stronger lift and slight 3D tilt */
+    transform: translateY(-12px) rotateX(1deg);
+    /* Deep Navy Shadow with prominent Gold Ring (Action-Full Glow) */
+    box-shadow: 0 20px 40px rgba(11, 65, 71, 0.5), 0 0 0 5px var(--primary-color);
+    /* Gold border on hover */
+    border-color: var(--primary-color);
+    z-index: 10;
+}
+
+.product-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    /* Image zoom animation */
+    transition: transform 0.5s ease;
+}
+
+.product-item:hover img {
+    /* Image zoom on hover */
+    transform: scale(1.05);
+}
+
+.product-item h3 {
+    font-size: 1.6em;
+    color: var(--secondary-color);
+    /* Navy Blue Heading */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.product-item .price {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    /* Highlight price in Gold */
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+
+/*======================================================
+  5. OTHER SECTION STYLES (Hero, Detail, Footer, etc.)
+========================================================*/
+
+
+/* --- HERO SECTION --- */
+
+.hero-section {
+    /* Use the Navy Blue background for the hero section */
+    background: linear-gradient(rgba(11, 65, 71, 0.8), rgba(11, 65, 71, 0.8)), url('hero-bg.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    /* Gold heading on Navy background */
+}
+
+.home-main-image {
+    max-width: 900px;
+    width: 20%;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    margin-top: 40px;
+    border: 5px solid var(--primary-color);
+    /* Gold border for main image */
+}
+
+
+/* --- PRODUCT DETAIL PAGE STYLES --- */
+
+.product-detail-section {
+    padding: 60px 5%;
+}
+
+.detail-card {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--surface-color);
+    border: 3px solid var(--secondary-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+
+/* ... rest of detail-card styles ... */
+
+.detail-card img {
+    width: 50%;
+    min-height: 500px;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+}
+
+.product-info-detail {
+    width: 50%;
+    padding: 50px;
+}
+
+.product-info-detail h2 {
+    text-align: left;
+    color: var(--primary-color);
+    /* Gold detail heading */
+    margin-bottom: 10px;
+}
+
+.product-info-detail .price {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    /* Navy Blue Price */
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.product-info-detail p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    /* WhatsApp Green */
+    border-color: #25D366;
+    color: white;
+    margin-top: 30px;
+}
+
+.whatsapp-btn:hover {
+    background-color: transparent;
+    color: #25D366;
+    border-color: #25D366;
+}
+
+
+/* --- TESTIMONIALS --- */
+
+.testimonials-section {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.testimonials-section h2 {
+    color: var(--primary-color);
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: #000000;
+    /* Deep Black for dramatic effect */
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    border-left: 5px solid var(--primary-color);
+    /* Gold accent line */
+}
+
+
+/* --- FOOTER --- */
+
+footer {
+    background-color: var(--secondary-color);
+    /* Navy Blue Footer */
+    color: var(--surface-color);
+    /* White/Cream text */
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+
+/*======================================================
+  6. RESPONSIVENESS (Media Queries)
+========================================================*/
+
+@media (max-width: 992px) {
+    /* Header Reorganization */
+    .luxury-header {
+        flex-direction: column;
+    }
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    nav {
+        order: 3;
+        margin-top: 15px;
+    }
+    .search-form {
+        order: 2;
+        margin: 10px 0;
+        width: 90%;
+        border-radius: 15px;
+    }
+    .search-form input[type="search"] {
+        width: 100%;
+    }
+    /* Product Detail Adjustments */
+    .detail-card {
+        flex-direction: column;
+        max-width: 90%;
+    }
+    .detail-card img,
+    .product-info-detail {
+        width: 100%;
+    }
+    .detail-card img {
+        height: 350px;
+        border-radius: 15px 15px 0 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+    .search-form {
+        width: 100%;
+    }
+    .product-item {
+        max-width: 100%;
+    }
+    .product-info-detail {
+        padding: 30px 20px;
+    }
+}
+
+
+/*======================================================
+  8. GRAND PRODUCT COLLECTION STYLE (SULTAN JI)
+========================================================*/
+
+
+/* Scroll-Triggered Fade-in Animation Keyframes */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 0;
+    /* Optional: Slight background variation to make cards pop */
+    background-color: var(--background-color);
+}
+
+.product-item {
+    background-color: var(--surface-color);
+    padding: 20px;
+    width: 300px;
+    border: 1px solid var(--border-color);
+    /* Subtle default border */
+    border-radius: 12px;
+    /* Smoother corners for elegance */
+    text-align: center;
+    overflow: hidden;
+    /* Animation initial state: hidden */
+    opacity: 0;
+    transform: translateY(20px);
+    /* Apply the staggered entrance animation */
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Default shadow for luxurious depth */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Smooth transitions for hover effects */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+
+/* Hover Effect: GRAND 3D TILT & GOLD GLOW */
+
+.product-item:hover {
+    /* Slight 3D tilt on hover (Grounded on the bottom edge) */
+    transform: translateY(-8px) rotateX(2deg) scale(1.02);
+    /* Extreme Gold Shadow for a dramatic effect */
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.2);
+    border-color: var(--primary-color);
+}
+
+.product-item img {
+    width: 100%;
+    height: 300px;
+    /* Fixed height for uniformity in grid */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: filter 0.4s ease;
+}
+
+.product-item:hover img {
+    /* Image gets a soft golden glow on hover */
+    filter: brightness(1.05) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+}
+
+.product-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-bottom: 8px;
+    /* Subtle Gold Underline */
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.product-item .price {
+    color: var(--primary-color);
+    /* Bright Gold */
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/* --- Staggered Entrance Effect --- */
+
+
+/* Har item thode time ke baad saamne aayega */
+
+.product-grid .product-item:nth-child(1) {
+    animation-delay: 0.0s;
+}
+
+.product-grid .product-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.product-grid .product-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.product-grid .product-item:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.product-grid .product-item:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.product-grid .product-item:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.product-grid .product-item:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.product-grid .product-item:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+
+/* Agar aur bhi products hon toh yeh automatically unpar apply ho jayega */
+
+
+/*======================================================
+  9. LOGO & HEADER GLOW EFFECTS (All Files)
+========================================================*/
+
+
+/* Logo Container ko 3D perspective denge */
+
+.logo-container {
+    /* Perspective for 3D effect on hover */
+    perspective: 1000px;
+}
+
+
+/* Logo Image (SULTAN JI LOGO.jpg) par effect */
+
+.logo-img {
+    /* Smooth transition for all changes */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    /* Default shadow for initial depth */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    /* Make sure the image responds to 3D effects */
+    transform-style: preserve-3d;
+}
+
+
+/* Logo Image Hover Effect: 3D Tilt & Intense Gold Sparkle */
+
+.logo-img:hover {
+    /* 3D Rotation: Halka sa neeche aur right ki taraf tilt hoga (15 degrees) */
+    transform: rotateX(5deg) rotateY(5deg) scale(1.05);
+    /* Intense Gold Box Shadow (Sparkle) */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), /* Soft Inner Glow */
+    0 0 25px rgba(255, 215, 0, 0.6), /* Medium Glow */
+    0 15px 30px rgba(0, 0, 0, 0.7);
+    /* Deep Outer Shadow for height */
+}
+
+
+/* Logo Title (SULTAN JI - UNIQUE BRAND) par subtle glow effect */
+
+.logo-container h1 {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    /* Base text-shadow for a permanent luxurious look */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Logo Title Hover Effect: Text Glow */
+
+.logo-container:hover h1 {
+    color: var(--primary-color);
+    /* Gold color on hover */
+    /* Soft, luxurious text glow */
+    text-shadow: 0 0 8px var(--primary-color), 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+
+/*======================================================
+  14. CONTACT PAGE - ACTION SOCIAL ICONS
+========================================================*/
+
+.social-icon-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Icons ke beech mein space */
+    margin-top: 25px;
+}
+
+
+/* Base style for all social icons */
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    /* Icon ka size */
+    height: 50px;
+    /* Icon ka size */
+    border-radius: 50%;
+    /* Gol shape */
+    color: var(--surface-color);
+    /* White icon */
+    font-size: 1.5em;
+    text-decoration: none;
+    /* Default Luxury Look: Dark Border & Shadow */
+    border: 2px solid var(--secondary-color);
+    /* Navy blue border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    /* Action: Smooth transitions for all effects */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Springy transition */
+}
+
+
+/* Unique Brand Colors (Backgrounds) */
+
+.social-icon.facebook {
+    background-color: #3b5998;
+}
+
+.social-icon.instagram {
+    background-color: #E4405F;
+}
+
+.social-icon.tiktok {
+    background-color: #000000;
+}
+
+.social-icon.whatsapp {
+    background-color: #25D366;
+}
+
+
+/* WhatsApp Green */
+
+
+/* ROYAL HOVER EFFECT: Lift, Scale, and Gold Glow */
+
+.social-icon:hover {
+    /* Action: Thoda bada hoga (zoom in) */
+    transform: scale(1.15) rotate(5deg);
+    /* Intense Gold Glow */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), /* Strong Gold Glow */
+    0 6px 15px rgba(0, 0, 0, 0.6);
+    /* Deep Shadow */
+    /* Gold Border Accent on Hover */
+    border-color: var(--primary-color);
+}
+
+
+/* Icon (i tag) ko thoda Royal feel denge */
+
+.social-icon i {
+    transition: color 0.3s;
+}
+
+.social-icon:hover i {
+    color: var(--primary-color);
+    /* Icon ka color Gold ho jayega */
+}
+
+
+/*======================================================
+  15. CONTACT PAGE LAYOUT
+========================================================*/
+
+.contact-section {
+    /* Use the light background color from the root */
+    background-color: var(--background-color);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: var(--secondary-color);
+    /* Navy Blue Heading */
+}
+
+
+/* Main container for spacing */
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+
+/* Individual contact detail box (The old footer/detail-item style) */
+
+.detail-item {
+    background-color: var(--surface-color);
+    border: 3px solid var(--primary-color);
+    /* Gold Border Accent */
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    /* Text alignment for readability */
+}
+
+.detail-item h3 {
+    color: var(--secondary-color);
+    /* Navy Blue Sub-heading */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.detail-item p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.detail-item a {
+    color: var(--primary-color);
+    /* Gold link color */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.detail-item a:hover {
+    color: var(--dark-primary-color);
+    /* Dark hover for gold links */
+}
+
+
+/* Separate box style for Operating Hours */
+
+.contact-box {
+    /* The inline style from HTML is redundant if this is used, but this keeps the structure */
+    max-width: 500px;
+    margin: 40px auto;
+    background-color: var(--surface-color);
+    border: 3px solid var(--secondary-color);
+    /* Navy Border */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-box h3 {
+    color: var(--primary-color);
+    /* Gold Heading */
+    margin-bottom: 20px;
+}
+
+
+/* --- PRODUCT DETAIL PAGE STYLES --- */
+
+
+/* ... other styles ... */
+
+.whatsapp-btn {
+    /* Uses the standard WhatsApp Green color */
+    background-color: #25D366;
+    border-color: #25D366;
+    color: white;
+    margin-top: 30px;
+    /* Inherits from .luxury-btn for padding, font, etc. */
+}
+
+.whatsapp-btn:hover {
+    /* Hover effect: Transparent button with green border and text */
+    background-color: transparent;
+    color: #25D366;
+    border-color: #25D366;
+    /* Also inherits the lift/shadow from .luxury-btn:hover if needed */
+}
+
+
+/*======================================================
+  14. CONTACT PAGE - ACTION SOCIAL ICONS
+========================================================*/
+
+
+/* ... Base .social-icon styles ... */
+
+.social-icon.whatsapp {
+    /* Unique Brand Color (Background) */
+    background-color: #25D366;
+}
+
+
+/* Note: The hover effect is handled by the general .social-icon:hover, 
+which provides the Gold Glow and lift. */

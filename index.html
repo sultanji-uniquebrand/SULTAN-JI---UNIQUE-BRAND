@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SULTAN JI - UNIQUE BRAND | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="door-opening-screen">
+        <div class="door left-door">
+            <h1 class="door-text">SULTAN JI</h1>
+        </div>
+        <div class="door right-door">
+            <h1 class="door-text">UNIQUE BRAND</h1>
+        </div>
+    </div>
+    <header class="luxury-header">
+        <div class="logo-container">
+            <img src="SULTAN_JI_LOGO.jpg" alt="Sultan Ji Logo" class="logo-img">
+            <h1>SULTAN JI - UNIQUE BRAND</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="products.html">All Products</a>
+            <a href="about.html">About Us</a>
+            <a href="payment.html">Payment Info</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <form class="search-form" action="products.html" method="get">
+            <input type="search" name="q" placeholder="Search Products..." aria-label="Search" required>
+            <button type="submit">
+                <i class="fas fa-search"></i> 
+                Search
+            </button>
+        </form>
+    </header>
+
+    <section class="hero-section">
+        <div class="background-glitter"></div>
+
+        <div class="hero-content">
+            <h2>WELCOME TO SULTAN JI - UNIQUE BRAND</h2>
+            <p style="font-size: 1.3em; margin-bottom: 40px; color: var(--subtle-text);">
+                Discover exclusive style and premium quality that defines SULTAN JI - UNIQUE BRAND.
+            </p>
+            <a href="products.html" class="luxury-btn">Explore The Collection</a>
+        </div>
+
+        <div class="home-image-container">
+            <img src="HOME.ME.PIC.ADD.KRO.jpg" alt="A model wearing exclusive SULTAN JI clothing" class="home-main-image">
+        </div>
+    </section>
+
+    <section class="all-products" style="background-color: var(--surface-color);">
+        <h2>all-products</h2>
+        <a href="products.html" class="luxury-btn">View Details</a>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>Customer Reviews</h2>
+        <div class="testimonials-container">
+
+            <div class="testimonial-card">
+                <p>"The Golden Emblem Shirt is stunning. The quality is top-notch and the gold print really stands out. Truly a unique brand."</p>
+                <span class="customer-name">- Ahmed Khan</span>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"Fast delivery and the Regal Denim Jacket exceeded expectations. It looks even better in person. Sultan Ji has gained a loyal customer."</p>
+                <span class="customer-name">- Zainab Malik</span>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"I highly recommend this brand. The fabric is comfortable and the fit is perfect. Worth every penny for the exclusive look."</p>
+                <span class="customer-name">- Taimoor Ali</span>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SULTAN JI - UNIQUE BRAND.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const screen = document.querySelector('.door-opening-screen');
+            const leftDoor = document.querySelector('.left-door');
+            const rightDoor = document.querySelector('.right-door');
+            const doorText = document.querySelector('.door-text');
+
+            // Reset logic remains the same...
+            const resetAnimations = (element) => {
+                element.style.animation = 'none';
+                element.style.opacity = '1';
+                if (element.classList.contains('door-opening-screen')) {
+                    element.style.visibility = 'visible';
+                }
+                void element.offsetWidth;
+            };
+
+            resetAnimations(screen);
+            resetAnimations(leftDoor);
+            resetAnimations(rightDoor);
+            resetAnimations(doorText);
+
+            // Re-apply the SLOWER, HEAVIER animations (Total 4.5s)
+            screen.style.animation = 'openDoors 4.5s forwards';
+            // Iron gate opening is slow and heavy: 4.0s
+            leftDoor.style.animation = 'slideLeft 4.0s ease-in-out forwards';
+            rightDoor.style.animation = 'slideRight 4.0s ease-in-out forwards';
+            // Name Reveal: Starts at 2.0s, fades out at 3.0s
+            doorText.style.animation = 'revealText 0.5s ease-in 2.0s forwards, fadeOutText 0.5s ease-out 3.0s forwards';
+        });
+    </script>
+
+</body>
+
+</html>
